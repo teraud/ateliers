@@ -1,0 +1,5 @@
+<BOUCLE_atelier_regle(PAIEMENTS){id_objet=#ENV{id_atelier}}{objet=atelier}{statut_paiement=ok}>
+</BOUCLE_atelier_regle>
+</B_atelier_regle>
+<p><a href="[(#URL_PAGE{paiement_objet}|parametre_url{id_objet,#ENV{id_atelier}}|parametre_url{objet,atelier}|parametre_url{montant_total,200})]">Régler cet atelier</a></p>
+<//B_atelier_regle>

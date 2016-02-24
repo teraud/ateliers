@@ -1,0 +1,40 @@
+[(#SET{defaut_tri,#ARRAY{
+	num titre_court,1,
+	id_atelier,1
+}})
+]<B_liste_ateliers>
+<div class="liste-objets ateliers">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre_court,#GRAND_TOTAL|singulier_ou_pluriel{atelier:info_1_atelier,atelier:info_nb_ateliers}})</strong></caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='picto' scope='col'></th>
+			<th class='titre_court' scope='col'>[(#TRI{num titre_court,<:atelier:label_titre_court:>,ajax})]</th>
+			<th class='statut' scope='col'>[(#TRI{statut,Statut,ajax})]</th>
+			<th class='edition' scope='col'>Édition</th>
+			<th class='id' scope='col'>[(#TRI{id_atelier,<:info_numero_abbreviation:>,ajax})]</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_ateliers(ATELIERS){id_rubrique?}{id_ue_edition?}{id_mot?}{id_auteur?}{where?}{statut!=poubelle}{recherche?}{tri num titre_court}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class='picto'>[(#CHEMIN_IMAGE{atelier-16.png}|balise_img)]</td>
+			<td class='titre_court principale'><a href="[(#ID_ATELIER|generer_url_entite{atelier})]" title="<:info_numero_abbreviation|attribut_html:> #ID_RUBRIQUE">#TITRE_COURT</a></td>
+			<td class='statut secondaire'>#STATUT</td>
+			<td class='edition secondaire'><BOUCLE_edition(UE_EDITIONS){id_ue_edition}>#TITRE</BOUCLE_edition></td>
+			<td class='id'>[(#AUTORISER{modifier,atelier,#ID_ATELIER}|?{
+				<a href="[(#URL_ECRIRE{atelier_edit,id_atelier=#ID_ATELIER})]">#ID_ATELIER</a>,
+				#ID_ATELIER
+			})]</td>
+			
+		</tr>
+	</BOUCLE_liste_ateliers>
+	</tbody>
+</table>
+</div>
+</B_liste_ateliers>[
+<div class="liste-objets ateliers caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_ateliers>
+
+#SET{args,#ARRAY}
+<a href="[(#URL_PAGE{transmettre,[(#VAL{ateliers}|param_low_sec{#GET{args}, '', 'transmettre'})]})]" class="noajax"><:statistiques:csv:></a>

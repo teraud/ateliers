@@ -1,0 +1,13 @@
+[(#ID_ATELIER|intval|oui)
+	[(#AUTORISER{modifier,atelier,#ID_ATELIER}|sinon_interdire_acces)]
+][(#ID_ATELIER|intval|non)
+	[(#AUTORISER{creer,atelier,#ID_ATELIER}|sinon_interdire_acces)]
+]
+<section>
+    <header class="cartouche">
+	    <h1>Ajouter/modifier un atelier</h1>
+    </header>
+    <div class="main">
+        #FORMULAIRE_EDITER_ATELIER{#ENV{id_atelier,oui},#ENV{id_rubrique,0}}
+    </div>
+</section>

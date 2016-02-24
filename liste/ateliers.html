@@ -1,0 +1,11 @@
+<B_ateliers>
+<div class="liste ateliers">
+	<ul class="liste-items">
+		<BOUCLE_ateliers(ATELIERS){id_ue_edition?}{par num titre_court}>
+		<li class="item">
+			<a href="#URL_PAGE{atelier,id_atelier=#ID_ATELIER}">#TITRE_COURT</a>
+		</li>
+		</BOUCLE_ateliers>
+	</ul>
+</div>
+</B_ateliers>

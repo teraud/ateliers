@@ -1,0 +1,29 @@
+<paquet
+	prefix="ateliers"
+	categorie="edition"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.0.0;3.0.*]"
+	logo="prive/themes/spip/images/atelier-128.png"
+	schema="1.4.0"
+>
+	<nom>Ateliers</nom>
+
+	<auteur>CRID</auteur>
+	<licence>GNU/GPL</licence>
+
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/ateliers.php" />
+	<pipeline nom="declarer_tables_interfaces" inclure="base/ateliers.php" />
+	<pipeline nom="affiche_enfants" inclure="ateliers_pipelines.php" />
+	<pipeline nom="affiche_milieu" inclure="ateliers_pipelines.php" />
+	<pipeline nom="autoriser" inclure="inc/ateliers_autoriser.php" />
+
+	<necessite nom="saisies" compatibilite="[2.5.0;[" />
+	<necessite nom="compositions" compatibilite="[3.5.0;[" />
+	<necessite nom="modules" compatibilite="[1.0.0;[" />
+	<utilise nom="accesrestreint" compatibilite="[3.13.0;[" />
+
+	<menu nom="ateliers" titre="atelier:titre_ateliers" parent="menu_edition" icone="images/atelier-16.png" />
+	<menu nom="atelier_creer" titre="atelier:icone_creer_atelier" parent="outils_rapides" icone="images/atelier-new-16.png" action="atelier_edit" parametres="new=oui" />
+
+</paquet>

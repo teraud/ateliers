@@ -1,0 +1,30 @@
+<B_liste_ateliers>
+#ANCRE_PAGINATION
+<div class="liste-objets ateliers">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre_court,#GRAND_TOTAL|singulier_ou_pluriel{atelier:info_1_atelier,atelier:info_nb_ateliers}})</strong></caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='nom'>Nom</th>
+			<th class='organisation'>Organisation</th>
+			<th class='email'>Email</th>
+			<th class='titre_court' scope='col'>Titre court</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_ateliers(ATELIERS){id_ue_edition?}{id_rubrique?}{id_mot?}{id_auteur?}{where?}{statut=publie}{recherche?}{tri id_atelier}{pagination #ENV{nb,10}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class='nom'>#NOM_REFERENT #PRENOM_REFERENT</td>
+			<td class='organisation'>#ORGANISATION_REFERENT</td>
+			<td class="email">#EMAIL_REFERENT</td>
+			<td class='titre_court principale'>[(#AUTORISER{modifier,atelier,#ID_ATELIER}|?{
+				<a href="[(#URL_PAGE{atelier_edit}|parametre_url{id_atelier,#ID_ATELIER})]">#TITRE_COURT</a>,
+				#TITRE_COURT
+			})]</td>
+		</tr>
+	</BOUCLE_liste_ateliers>
+	</tbody>
+</table>
+[<p class='pagination'>(#PAGINATION{prive})</p>]
+</div>
+</B_liste_ateliers>

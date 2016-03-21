@@ -1,0 +1,5 @@
+<BOUCLE_principale_atelier(ATELIERS){id_atelier}>
+<BOUCLE_secteur(HIERARCHIE){id_atelier}{0,1}>
+<INCLURE{fond=structure,env,id_rubrique=#ENV{id_rubrique,#ID_RUBRIQUE},id_secteur=#ID_SECTEUR,type-page=atelier,composition=#COMPOSITION} />
+</BOUCLE_secteur>
+</BOUCLE_principale_atelier>

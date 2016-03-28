@@ -9,7 +9,7 @@ include_spip('inc/editer');
 function formulaires_editer_atelier_charger_dist($id_atelier='new', $id_rubrique=0, $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
 	$valeurs = formulaires_editer_objet_charger('atelier',$id_atelier,$id_rubrique,$lier_trad,$retour,$config_fonc,$row,$hidden);
 
-	if (!test_espace_prive() && !intval($valeurs['id_ue_edition'])) {
+	if (!intval($valeurs['id_ue_edition'])) {
 		$valeurs['id_ue_edition'] = sql_getfetsel('id_ue_edition', 'spip_ue_editions', 'statut="publie"', '', 'id_ue_edition desc', '0,1');
 	}
 
@@ -223,7 +223,7 @@ function formulaires_editer_atelier_traiter_dist($id_atelier='new', $id_rubrique
 		spip_unlink(preg_replace(',\.bin$,',
 			'.txt', $_FILES['ajouter_document']['tmp_name']));
 	}
-
+    /*
 	if ($res['message_ok'] && !test_espace_prive()) {
 
 		$res['message_ok'] = "Merci pour l’inscription de votre atelier. Dès sa validation par le CRID il apparaitra dans le tableau récapitulatif des ateliers, vous pourrez dès lors le compléter ou le modifier.";
@@ -233,7 +233,7 @@ function formulaires_editer_atelier_traiter_dist($id_atelier='new', $id_rubrique
 		$envoyer_mail('t.eraud@ritimo.org', "Mise à jour atelier", "L'atelier ".$res['id_atelier']." a été modifié.", "universite-si@crid.asso.fr", "X-Originating-IP: ".$GLOBALS['ip']);
 		
 	}
-	
+	*/
 	if (test_espace_prive()) {
 		$res['redirect'] = generer_url_ecrire('atelier', 'id_atelier='.$res['id_atelier']);
 	}

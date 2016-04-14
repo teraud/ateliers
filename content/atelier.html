@@ -10,13 +10,16 @@
 
         [<div class="texte">(#PRESENTATION_GENERALE|image_reduire{500,0})</div>]
 
-        [<div class="ps">(#DOCUMENTS_COMPLEMENTAIRES|image_reduire{500,0})</div>]
+        [<div class="texte">
+            <p><strong>Documents et liens complémentaires : </strong></p>
+            (#DOCUMENTS_COMPLEMENTAIRES|image_reduire{500,0})
+        </div>]
 
         <B_intervenants>
         <div class="ps">
 	        <p>
 	            <strong>Intervenant-e-s : </strong>
-	            <BOUCLE_intervenants(INTERVENANTS){id_objet=#ID_ATELIER}{objet=atelier}{', '}{confirme!=Annulé-e}>#PRENOM #NOM (#ORGANISATION - #PAYS)</BOUCLE_intervenants>
+	            <BOUCLE_intervenants(INTERVENANTS){id_objet=#ID_ATELIER}{objet=atelier}{', '}{confirme!=Annulé-e}>#PRENOM #NOM [(#ORGANISATION|ou{#PAYS})(][(#ORGANISATION)[(#PAYS|oui) - ]]#PAYS[(#ORGANISATION|ou{#PAYS}))]</BOUCLE_intervenants>
 	        </p>
         </div>
         </B_intervenants>

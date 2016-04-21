@@ -2,6 +2,10 @@
 <article>
 
     <header class="cartouche">
+        <p class="surtitre">
+            [(#TEMPS|=={1}|oui)#MODELE{atelier_temps_1, id_ue_edition}]
+            [(#TEMPS|=={2}|oui)#MODELE{atelier_temps_2, id_ue_edition}]
+        </p>
         <h1 class="titre">#TITRE_COURT</h1>
     </header>
 

@@ -1,0 +1,16 @@
+<BOUCLE_aside(ATELIERS){id_atelier}>
+
+<B_ateliers>
+<div class="liste ateliers">
+    #ANCRE_PAGINATION
+    <h2 class="h2"><:meme_rubrique:></h2>
+    <ul class="liste-items">
+        <BOUCLE_ateliers(ATELIERS) {id_ue_edition}{par temps}{par num titre_court}{pagination 10}>
+        <li class="item"><a href="#URL_ATELIER"[ class="(#EXPOSE)"]>#TITRE_COURT</a></li>
+        </BOUCLE_ateliers>
+    </ul>
+    [<div class="pagination">(#PAGINATION)</div>]
+</div>
+</B_ateliers>
+
+</BOUCLE_aside>

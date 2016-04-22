@@ -1,7 +1,7 @@
 <ul class="breadcrumb">
     <li><a href="#URL_SITE_SPIP/"><:accueil_site:></a><span class="divider"> &gt; </span></li>
     <BOUCLE_atelier(ATELIERS) {id_atelier}>
-    <BOUCLE_ariane_hier(HIERARCHIE) {id_rubrique}{tout_voir}>
+    <BOUCLE_ariane_hier(HIERARCHIE) {id_atelier}{tout_voir}>
     <li><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a><span class="divider"> &gt; </span></li>
     </BOUCLE_ariane_hier>
         <li class="active"><span class="on active">[(#TITRE_COURT|couper{80})]</span></li>
